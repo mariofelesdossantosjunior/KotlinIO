@@ -32,3 +32,16 @@ fun conveterToDollars(money: Money) = when (money.currency){
 }
 
 fun BigDecimal.percent(percentage: Int) = this.multiply(java.math.BigDecimal(percentage)).divide(BigDecimal(1000))
+
+fun getMoney(): Money{
+    return Money().apply {
+        currency = "R$"
+        amount = BigDecimal(50)
+    }
+}
+
+fun getMoneyFromTicket(money: Money): Ticket{
+    return with(money){
+        Ticket(money,"teste")
+    }
+}
